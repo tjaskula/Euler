@@ -17,3 +17,22 @@ module Problems =
         lst 
             |> List.filter (fun elem -> checkMult3and5 elem)
             |> List.sum
+
+    let problem1' lst =
+        let checkMult3and5 =
+            function
+                | 0, 0 | 0, _ | _, 0 -> true
+                | _ -> false
+        lst 
+            |> List.filter (fun elem -> checkMult3and5 (elem%3, elem%5))
+            |> List.sum
+
+    let problem1'' lst =
+        let checkMult3and5 number =
+            if (number % 3 = 0 || number % 5 = 0) then
+                true
+            else
+                false
+        lst 
+            |> List.filter (fun elem -> checkMult3and5 elem)
+            |> List.sum
