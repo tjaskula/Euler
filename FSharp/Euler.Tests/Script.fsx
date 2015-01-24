@@ -14,3 +14,5 @@ open Euler.Problems
 
 // Problem 1: Multiples of 3 and 5
 let result = problem1 [0..999]
+
+let resProb2 = problem2 ()
