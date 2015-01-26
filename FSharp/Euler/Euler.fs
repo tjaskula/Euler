@@ -52,6 +52,64 @@ module Problems =
             |> Seq.filter (fun elem -> elem % 2I = 0I)
             |> Seq.sum
 
+        
+    (*
+        The prime factors of 13195 are 5, 7, 13 and 29.
+
+        What is the largest prime factor of the number 600851475143 ?
+    *)
+
+    open System.Numerics
+
+    type FactorTree =
+        | Leaf of int64
+        | Branch of int64 * FactorTree * FactorTree
+
+    let (|Even|Odd|) (number, divisor) =
+        match number % divisor with
+            | 0L -> Even
+            | _ -> Odd
+
+    let rec findDivended number divisor =
+        match (number, divisor) with
+            | Even -> let quotient = number / divisor
+                      quotient, divisor
+            | Odd ->  findDivended number (divisor + 1L)     
     
-        
-        
+    let rec buildUpFactorTree tree =
+        match tree with
+            | Leaf number -> let quotient, divisor = findDivended number 2L
+                             match quotient with
+                                | 1L -> tree
+                                | _ -> buildUpFactorTree (Branch (number, Leaf quotient, Leaf divisor))
+            | Branch (value, left, right) -> Branch(value, buildUpFactorTree left, buildUpFactorTree right)
+
+
+    let rec evaluate tree biggestSoFar =
+        match tree with
+            | Leaf number -> if number > biggestSoFar then
+                                number
+                             else
+                                biggestSoFar
+            | Branch (value, left, right) -> let biggestLeft = evaluate left biggestSoFar
+                                             let biggestRight = evaluate right biggestSoFar
+                                             if (biggestLeft > biggestRight) then
+                                                biggestLeft
+                                             else
+                                                biggestRight
+                                             
+    let problem3 number =
+        let tree = buildUpFactorTree (Leaf number)
+        evaluate tree 1L
+
+    let rec maxFactor max min =
+        if max = min then
+            max
+        else
+            let isDivisible = max % min = 0L
+            let nextMax = if isDivisible then max / min else max
+            let nextMin = if isDivisible then min else min + 1L
+            maxFactor nextMax nextMin
+
+    let problem3' number =
+        maxFactor number 2L

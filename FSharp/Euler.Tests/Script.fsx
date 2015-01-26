@@ -16,3 +16,5 @@ open Euler.Problems
 let result = problem1 [0..999]
 
 let resProb2 = problem2 ()
+
+let resProb3 = problem3 13L
