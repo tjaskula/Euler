@@ -59,8 +59,6 @@ module Problems =
         What is the largest prime factor of the number 600851475143 ?
     *)
 
-    open System.Numerics
-
     type FactorTree =
         | Leaf of int64
         | Branch of int64 * FactorTree * FactorTree
@@ -138,3 +136,22 @@ module Problems =
                                     | false -> calculate largest xs right
  
         calculate 0 range range
+
+    (*
+        2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+        What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+    *)
+
+    let positifNumbers = Seq.unfold (fun state -> Some(state, state + 1)) 1
+ 
+    let isDivisible number =
+        let n = [1..20]
+                    |> List.tryFind (fun elem -> (number % elem) > 0)
+        match n with
+            | Some _ -> false
+            | None -> true
+ 
+    let problem5 () =
+        positifNumbers
+           |> Seq.find (fun elem -> isDivisible elem)
