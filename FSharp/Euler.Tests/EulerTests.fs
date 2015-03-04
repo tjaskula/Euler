@@ -24,7 +24,7 @@ module ``Euler problem tests tests`` =
         let result = problem1'' [1..999] = 233168
         Check.Quick result
 
-    // Problem `2 : Even Fibonacci numbers
+    // Problem 2 : Even Fibonacci numbers
     [<Fact>]
     let ``Even Fibonacci numbers''``() =
         let result = problem2 () = 4613732I
