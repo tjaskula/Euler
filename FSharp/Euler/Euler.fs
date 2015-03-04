@@ -113,3 +113,28 @@ module Problems =
 
     let problem3' number =
         maxFactor number 2L
+
+    (*
+        A palindromic number reads the same both ways. The largest palindrome 
+        made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+        Find the largest palindrome made from the product of two 3-digit numbers.
+    *)
+ 
+    let isPalindrome number =
+        let arr = number.ToString().ToCharArray()
+        arr = Array.rev arr
+ 
+    let problem4 () =
+        let range = List.rev [100..999]
+ 
+        let rec calculate largest left right =
+            match left, right with
+                | [], [] | _, [] -> largest
+                | [], y::ys -> calculate largest range ys
+                | x::xs, y::ys -> let res = x * y
+                                  match isPalindrome res with
+                                    | true -> calculate (max res largest) xs right
+                                    | false -> calculate largest xs right
+ 
+        calculate 0 range range
