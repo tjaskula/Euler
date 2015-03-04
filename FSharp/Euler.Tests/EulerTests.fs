@@ -30,6 +30,12 @@ module ``Euler problem tests tests`` =
         let result = problem2 () = 4613732I
         Check.Quick result
 
+    // Problem 3 : Largest prime factor
+    [<Fact>]
+    let ``Largest prime factor``() =
+        let result = problem3 600851475143L = 6857L
+        Check.Quick result
+
     // Problem 4 : Largest palindrome product
     [<Fact>]
     let ``Largest palindrome product``() =
