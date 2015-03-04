@@ -180,3 +180,29 @@ module Problems =
  
     let problem6 range =
         (squareSum range) - (sumSquare range)
+
+    (*
+        By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+        What is the 10 001st prime number?
+    *)
+
+    let isPrime number =
+        let divisors = [2..number - 1]
+        let found = divisors
+                    |> List.tryFind (fun elem -> number % elem = 0)
+        match found with
+            | Some _ -> false
+            | None -> true
+ 
+    let rec nextPrime number =
+        if isPrime (number + 1) then
+            number + 1
+        else
+            nextPrime (number + 1)
+ 
+    let problem7 n =
+        let primeNumbers = Seq.unfold (fun state -> Some(state, nextPrime state)) 2
+        primeNumbers
+            |> Seq.take n
+            |> Seq.last
