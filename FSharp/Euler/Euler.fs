@@ -285,4 +285,26 @@ module Problems =
             |> Seq.map (fun (a, b, c) -> a * b * c)
             |> Seq.last
 
-    
+    (*
+        The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+        Find the sum of all the primes below two million.
+    *)
+
+    let isPrime n =
+        if n < 2I then
+            false
+        else
+            let upperBound = bigint (sqrt (float n))
+            let res = seq{2I..upperBound}
+                        |> Seq.tryFind (fun i -> n % i = 0I)
+            match res with
+                | Some _ -> false
+                | None -> true
+ 
+    let problem10 number =
+        let sum = Seq.unfold (fun state -> Some(state, state + 1I)) 1I
+                        |> Seq.filter(fun n -> isPrime n)
+                        |> Seq.takeWhile (fun n -> n < number)
+                        |> Seq.sum
+        sum
