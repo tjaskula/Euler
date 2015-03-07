@@ -265,3 +265,24 @@ module Problems =
                                     |> Array.map (Char.GetNumericValue >> int64)
                                     |> Array.reduce (fun acc i  -> acc * i))
             |> Array.max
+
+    (*
+        A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+
+        a2 + b2 = c2
+        For example, 32 + 42 = 9 + 16 = 25 = 52.
+
+        There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+        Find the product abc.
+    *)
+
+    let problem9 number =
+        seq {for a in 1..number do
+                for b in (a + 1)..number do
+                    yield a, b}
+            |> Seq.map (fun (a, b) -> a, b, 1000 - a - b)
+            |> Seq.filter (fun (a, b, c) -> (pown a 2) + (pown b 2) = pown c 2)
+            |> Seq.map (fun (a, b, c) -> a * b * c)
+            |> Seq.last
+
+    
