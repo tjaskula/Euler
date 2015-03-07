@@ -1,5 +1,7 @@
 ﻿namespace Euler
 
+open System
+
 [<AutoOpen>]
 module Problems =
 
@@ -186,14 +188,6 @@ module Problems =
 
         What is the 10 001st prime number?
     *)
-
-    let isPrime number =
-        let divisors = [2..number - 1]
-        let found = divisors
-                    |> List.tryFind (fun elem -> number % elem = 0)
-        match found with
-            | Some _ -> false
-            | None -> true
  
     let rec nextPrime number =
         if isPrime (number + 1) then
@@ -290,17 +284,6 @@ module Problems =
 
         Find the sum of all the primes below two million.
     *)
-
-    let isPrime n =
-        if n < 2I then
-            false
-        else
-            let upperBound = bigint (sqrt (float n))
-            let res = seq{2I..upperBound}
-                        |> Seq.tryFind (fun i -> n % i = 0I)
-            match res with
-                | Some _ -> false
-                | None -> true
  
     let problem10 number =
         let sum = Seq.unfold (fun state -> Some(state, state + 1I)) 1I
