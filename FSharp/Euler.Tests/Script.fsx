@@ -19,6 +19,8 @@ let resProb2 = problem2 ()
 
 let resProb3 = problem3 13L
 
+let resProb5 = problem5' ()
+
 // Problem 8: Largest product in a series
 open System
 

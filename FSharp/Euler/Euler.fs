@@ -158,6 +158,19 @@ module Problems =
         positifNumbers
            |> Seq.find (fun elem -> isDivisible elem)
 
+    let problem5' () =
+        let limit = sqrt 20.0
+        let primes = [1.0..20.0]
+                       |> List.filter (fun i -> isPrime i)
+        primes
+            |> List.map (fun i -> if i <= limit then
+                                     floor(log (20.0) / log (i))
+                                  else
+                                     1.0)
+            |> List.fold2 (fun state el1 el2 -> printfn "Current state %f : index %f : exponent %f" state el1 el2
+                                                state * el1 ** el2) 1.0 primes
+
+
     (*
         The sum of the squares of the first ten natural numbers is,
 

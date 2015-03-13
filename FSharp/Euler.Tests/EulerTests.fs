@@ -45,5 +45,5 @@ module ``Euler problem tests tests`` =
     // Problem 5 : Smallest multiple
     [<Fact>]
     let ``Problem 5: Smallest multiple``() =
-        let result = problem5 () = 232792560
+        let result = problem5' () = 232792560.0
         Check.Quick result
