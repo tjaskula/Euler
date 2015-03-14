@@ -65,3 +65,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 8: Largest product in a series``() =
         let result = problem8 13 = 23514624000L
         Check.Quick result
+
+    // Problem 9 : Special Pythagorean triplet
+    [<Fact>]
+    let ``Problem 9: Special Pythagorean triplet``() =
+        let result = problem9 1000 = 31875000
+        Check.Quick result
