@@ -53,3 +53,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 6: Sum square difference``() =
         let result = problem6 [1..100] = 25164150
         Check.Quick result
+
+    // Problem 7 : 10001st prime
+    [<Fact>]
+    let ``Problem 7: 10001st prime``() =
+        let result = problem7 10001 = 104743
+        Check.Quick result
