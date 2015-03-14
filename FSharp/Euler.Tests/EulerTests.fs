@@ -47,3 +47,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 5: Smallest multiple``() =
         let result = problem5' () = 232792560.0
         Check.Quick result
+
+    // Problem 6 : Sum square difference
+    [<Fact>]
+    let ``Problem 6: Sum square difference``() =
+        let result = problem6 [1..100] = 25164150
+        Check.Quick result
