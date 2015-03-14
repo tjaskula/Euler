@@ -71,3 +71,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 9: Special Pythagorean triplet``() =
         let result = problem9 1000 = 31875000
         Check.Quick result
+
+    // Problem 10 : Summation of primes
+    [<Fact>]
+    let ``Problem 10: Summation of primes``() =
+        let result = problem10 2000000L = 142913828922L
+        Check.Quick result

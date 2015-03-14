@@ -299,7 +299,7 @@ module Problems =
     *)
  
     let problem10 number =
-        let sum = Seq.unfold (fun state -> Some(state, state + 1I)) 1I
+        let sum = Seq.unfold (fun state -> Some(state, state + 1L)) 1L
                         |> Seq.filter(fun n -> isPrime n)
                         |> Seq.takeWhile (fun n -> n < number)
                         |> Seq.sum
