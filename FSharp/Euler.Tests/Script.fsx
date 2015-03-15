@@ -12,6 +12,8 @@ System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 open FsCheck
 open Euler.Problems
 
+let result10 = problem10' 2000000
+
 // Problem 1: Multiples of 3 and 5
 let result = problem1 [0..999]
 

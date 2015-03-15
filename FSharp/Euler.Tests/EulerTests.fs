@@ -73,7 +73,13 @@ module ``Euler problem tests tests`` =
         Check.Quick result
 
     // Problem 10 : Summation of primes
+//    [<Fact>]
+//    let ``Problem 10: Summation of primes``() =
+//        let result = problem10 2000000L = 142913828922L
+//        Check.Quick result
+
+    // Problem 10' : Summation of primes
     [<Fact>]
-    let ``Problem 10: Summation of primes``() =
-        let result = problem10 2000000L = 142913828922L
+    let ``Problem 10': Summation of primes``() =
+        let result = problem10' 2000000 = 142913828922L
         Check.Quick result

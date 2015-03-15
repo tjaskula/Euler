@@ -304,3 +304,19 @@ module Problems =
                         |> Seq.takeWhile (fun n -> n < number)
                         |> Seq.sum
         sum
+
+    // With Eratosthenes sieve
+    let problem10' number =
+        let sievebound = ((float number) - 1.0) / 2.0
+        let mutable sieve = Array.init (int sievebound + 1) (fun i -> false)
+        let crosslimit = ((sqrt (float number)) - 1.0) / 2.0
+        printfn "Sievebound: %f | Cross limit: %f" sievebound crosslimit
+        for i in 1..(int crosslimit) do
+            if not sieve.[i] then
+                for j in 2 * i * (i + 1)..(2 * i + 1)..(int sievebound) do
+                    sieve.[j] <- true
+ 
+        sieve
+          |> Array.mapi (fun indx elem -> indx, elem)
+          |> Array.filter (fun (_, e) -> not e)
+          |> Array.fold (fun sum (indx, _) -> sum + (2L * (int64 indx) + 1L)) 2L
