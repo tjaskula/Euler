@@ -83,3 +83,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 10': Summation of primes``() =
         let result = problem10' 2000000 = 142913828922L
         Check.Quick result
+
+    // Problem 11 : Largest product in a grid
+    [<Fact>]
+    let ``Problem 11: Largest product in a grid``() =
+        let result = problem11 () = 70600674
+        Check.Quick result
