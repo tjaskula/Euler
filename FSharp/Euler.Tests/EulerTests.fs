@@ -95,3 +95,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 12: Highly divisible triangular number``() =
         let result = problem12 500L = 76576500L
         Check.Quick result
+
+    // Problem 13 : Large sum
+    [<Fact>]
+    let ``Problem 13: Large sum``() =
+        let result = problem13 () = "5537376230"
+        Check.Quick result
