@@ -101,3 +101,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 13: Large sum``() =
         let result = problem13 () = "5537376230"
         Check.Quick result
+
+    // Problem 14 : Longest Collatz sequence
+    [<Fact>]
+    let ``Problem 14 : Longest Collatz sequence``() =
+        let result = fst (problem14 [1000000..-1..1]) = 837799
+        Check.Quick result

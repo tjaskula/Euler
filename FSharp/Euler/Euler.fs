@@ -691,3 +691,32 @@ module Problems =
             |> List.sum
             |> string
             |> substring 10
+
+    (*
+        The following iterative sequence is defined for the set of positive integers:
+
+        n → n/2 (n is even)
+        n → 3n + 1 (n is odd)
+
+        Using the rule above and starting with 13, we generate the following sequence:
+
+        13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+        It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
+
+        Which starting number, under one million, produces the longest chain?
+
+        NOTE: Once the chain starts the terms are allowed to go above one million.
+    *)
+
+    let produceCollatzSeq n =
+        let rec calculate count n =
+            match if n % 2L = 0L then n/2L else 3L * n + 1L with
+                | 1L -> count
+                | n -> calculate (count + 1L) n
+    
+        calculate 1L n
+ 
+    let problem14 range =
+        range
+        |> List.map (fun elem -> elem, produceCollatzSeq (int64 elem))
+        |> List.maxBy (fun (elem, l) -> l)
