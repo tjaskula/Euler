@@ -719,4 +719,4 @@ module Problems =
     let problem14 range =
         range
         |> List.map (fun elem -> elem, produceCollatzSeq (int64 elem))
-        |> List.maxBy (fun (elem, l) -> l)
+        |> List.maxBy (fun (_, l) -> l)
