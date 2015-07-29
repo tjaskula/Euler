@@ -12,17 +12,4 @@ System.IO.Directory.SetCurrentDirectory (__SOURCE_DIRECTORY__)
 open FsCheck
 open Euler.Problems
 
-let rec divisors acc number =
-    let count, indx = acc
-    if pown indx 2 <= number then
-        if number % indx = 0L then
-            divisors (count + 2L, indx + 1L) number
-        else
-            divisors (count, indx + 1L) number
-    else
-        count
-
-Seq.unfold (fun (a, state) -> Some(a, (a + state, state + 1L))) (1L, 2L)
-    |> Seq.skipWhile (fun elem -> divisors (2L, 2L) elem < 500L)
-    |> Seq.take 1
-    |> Seq.max
+let 
