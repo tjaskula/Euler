@@ -107,3 +107,9 @@ module ``Euler problem tests tests`` =
     let ``Problem 14 : Longest Collatz sequence``() =
         let result = fst (problem14 [1000000..-1..1]) = 837799
         Check.Quick result
+
+    // Problem 15 : Lattice paths
+    [<Fact>]
+    let ``Problem 15 : Lattice paths``() =
+        let result = problem15 (Array2D.create 21 21 1L) = 137846528820L
+        Check.Quick result

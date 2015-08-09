@@ -720,3 +720,21 @@ module Problems =
         range
         |> List.map (fun elem -> elem, produceCollatzSeq (int64 elem))
         |> List.maxBy (fun (_, l) -> l)
+
+    (*
+        Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
+
+        How many such routes are there through a 20×20 grid?
+    *)
+
+    let problem15 (lattice : int64[,]) =
+        let transform x y (t : int64) =
+            match x, y with
+            | (0, _) | (_, 0) -> ()
+            | _ ->  lattice.[x, y] <- lattice.[x - 1, y] + lattice.[x, y - 1]
+
+        lattice
+            |> Array2D.iteri transform
+
+
+        lattice.[(Array2D.length1 lattice) - 1, (Array2D.length2 lattice) - 1]

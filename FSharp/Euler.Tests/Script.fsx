@@ -22,4 +22,4 @@ let transform x y (t : int64) =
 lattice
     |> Array2D.iteri transform
 
-let result = lattice.[20, 20]
+let result = lattice.[(Array2D.length1 lattice) - 1, (Array2D.length2 lattice) - 1]
