@@ -11,7 +11,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>EulerFSharp.Tests</RootNamespace>
     <AssemblyName>Euler.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Name>EulerFSharp.Tests</Name>
     <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
     <NuGetPackageImportStamp>

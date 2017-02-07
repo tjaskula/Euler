@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>EulerFSharp</RootNamespace>
     <AssemblyName>Euler</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Name>EulerFSharp</Name>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <TargetFrameworkProfile />
